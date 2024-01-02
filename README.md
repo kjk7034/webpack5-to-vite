@@ -4,8 +4,8 @@
 
 ## 계획 및 진행과정
 
-- [O] webpack 프로젝트 vite로 변경하기 1 (React 플러그인 사용 - ViteWithReactBasicSetup)
-- [O] webpack 프로젝트 vite로 변경하기 2 (React 플러그인 제거)
+- [x] webpack 프로젝트 vite로 변경하기 1 (React 플러그인 사용 - ViteWithReactBasicSetup)
+- [x] webpack 프로젝트 vite로 변경하기 2 (React 플러그인 제거 - ViteBasicSetup)
 - [ ] webpack to vite Migration
 - [ ] ModuleFederationPlugin 관련 프로젝트 vite로 변경하기
 
