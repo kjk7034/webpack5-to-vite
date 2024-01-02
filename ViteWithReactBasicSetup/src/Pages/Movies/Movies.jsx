@@ -1,16 +1,16 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-import logo from '../../assets/logo.png';
-import Button from '../../components/Button/Button.jsx';
-import IconSlider from '../../components/IconSlider/IconSlider.jsx';
-import './Movies.scss';
+import logo from "/assets/logo.png";
+import Button from "../../components/Button/Button.jsx";
+import IconSlider from "../../components/IconSlider/IconSlider.jsx";
+import "./Movies.scss";
 
 function Movies() {
   const history = useHistory();
 
   const logOut = () => {
-    history.push('/login');
+    history.push("/login");
   };
 
   return (

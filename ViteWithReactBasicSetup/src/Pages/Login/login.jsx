@@ -1,15 +1,15 @@
-import React from 'react';
-import './login.scss';
-import { useHistory } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import Button from '../../components/Button/Button.jsx';
-import Signin from '../../components/signIn/signin.jsx';
+import React from "react";
+import "./login.scss";
+import { useHistory } from "react-router-dom";
+import logo from "/assets/logo.png";
+import Button from "../../components/Button/Button.jsx";
+import Signin from "../../components/signIn/signin.jsx";
 
 function Login() {
   const history = useHistory();
 
   const signInToMoviesNow = () => {
-    history.push('/movies');
+    history.push("/movies");
   };
 
   return (

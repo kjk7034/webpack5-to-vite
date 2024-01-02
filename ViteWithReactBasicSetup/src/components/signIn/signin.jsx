@@ -1,16 +1,16 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 // import Header from '../../components/header/header';
-import Inputbox from '../inputbox/inputbox.jsx';
-import Button from '../Button/Button.jsx';
-import './signin.scss';
+import Inputbox from "../inputbox/inputbox.jsx";
+import Button from "../Button/Button.jsx";
+import "./signin.scss";
 
 function Signin() {
   const history = useHistory();
 
   const loginToSite = () => {
-    history.push('/movies');
+    history.push("/movies");
   };
 
   return (
