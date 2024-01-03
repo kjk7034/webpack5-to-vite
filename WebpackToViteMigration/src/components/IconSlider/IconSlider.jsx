@@ -27,11 +27,7 @@ function IconSlider({ title }) {
       const counter = Math.round(Math.random() * 15);
       const key = Date.now() * Math.random();
       const mov = (
-        <img
-          key={key}
-          src={require(`../../assets/${movies[counter]}`)}
-          alt=""
-        />
+        <img key={key} src={`../../assets/${movies[counter]}`} alt="" />
       );
       movList.push(mov);
     }

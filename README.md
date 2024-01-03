@@ -6,7 +6,7 @@
 
 - [x] webpack 프로젝트 vite로 변경하기 1 (React 플러그인 사용 - ViteWithReactBasicSetup)
 - [x] webpack 프로젝트 vite로 변경하기 2 (React 플러그인 제거 - ViteBasicSetup)
-- [ ] webpack to vite Migration
+- [x] webpack to vite Migration
 - [ ] ModuleFederationPlugin 관련 프로젝트 vite로 변경하기
 
 ## webpack 프로젝트 vite로 변경하기 1
@@ -39,6 +39,20 @@ webpack config에 있는 내용만 옮기려 했으나, react 플러그인 적�
 
 - `@vitejs/plugin-react`이 없어도 잘 동작함.
 - create vite를 이용하면 기존 결과물보다 쉽게 프로젝트 설정이 가능하지만, 내가 얻고 싶은 경험은 아니어서 webpack 프로젝트를 그대로 가져와서 vite로 migration 해보기로 ...
+
+## webpack to vite Migration
+
+## 작업 과정
+
+1. `yarn add vite -D` 추가
+2. 기존 webpack 패키지들 삭제
+3. package.json scripts 관련 vite로 변경
+4. 기존 작업과 큰 차이점은 없었음. (js->jsx, require 제거 등...)
+5. assets 복사를 위해서 viteStaticCopy 적용
+
+### 작업 후기
+
+- assets 복사를 위해서 viteStaticCopy을 적용한 내용 이외, 기존 작업과 큰 차이점을 느끼지는 못함. 
 
 ## bookmark 링크
 
