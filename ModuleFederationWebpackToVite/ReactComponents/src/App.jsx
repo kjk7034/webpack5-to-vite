@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "./App.scss";
+import MovieCard from './components/MovieCard/MovieCard.jsx';
+import {
+  SnowButton,
+  BuyButton,
+  SimpleButton,
+  GlitchButton,
+} from "./components/Button/index.js";
+import Typography from "./components/Typography/Typography.jsx";
+import DropDown from "./components/DropDown/DropDown.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+let dropdownList = [
+  { value: "1", text: "Avengers End Game" },
+  { value: "2", text: "Spiderman" },
+  { value: "3", text: "IronMan" },
+  { value: "4", text: "Doctor Strange" },
+  { value: "5", text: "Black Panther" },
+  { value: "6", text: "Thor" },
+];
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="App">
+      <h3>Movie Card Component</h3>
+      <MovieCard></MovieCard>
+      <h3>Button Components</h3>
+      <SnowButton title="Snow Button"></SnowButton>
+      <br></br>
+      <GlitchButton title="Glitch Button"></GlitchButton>
+      <br></br>
+      <SimpleButton title="Simple Button"></SimpleButton>
+      <br></br>
+      <BuyButton title="Buy Button"></BuyButton>
+      <h3>Typography Styles</h3>
+      <Typography text="Title text" type="title" />
+      <br></br>
+      <Typography text="Paragraph Text" type="paragraph" />
+      <h3>Dropdown</h3>
+      <DropDown options={dropdownList}></DropDown>
+    </div>
+  );
+};
 
-export default App
+export default App;

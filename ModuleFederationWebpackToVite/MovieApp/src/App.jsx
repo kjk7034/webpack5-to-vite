@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { Suspense } from "react";
+import "./App.scss";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+const HomePage = React.lazy(() => import("homepage/HomePage"));
+const DetailsPage = React.lazy(() => import("detailspage/DetailsPage"));
+const SeatSelectionPage = React.lazy(() =>
+  import("seatselection/SeatSelection")
+);
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const history = useHistory();
+  const location = useLocation();
+
+  const movieClicked = (movie) => {
+    history.push(`details/${movie.id}`);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Switch>
+      <Route path="/details/:id">
+        <Suspense fallback={null}>
+          <DetailsPage routing={{ history, location }} location={location}></DetailsPage>
+        </Suspense>
+      </Route>
+      <Route path="/book">
+        <Suspense fallback={null}>
+          <SeatSelectionPage></SeatSelectionPage>
+        </Suspense>
+      </Route>
+      <Route path="/">
+        <Suspense fallback={null}>
+          <HomePage
+            movieClicked={movieClicked}
+            routing={{ history, location }}
+          ></HomePage>
+        </Suspense>
+      </Route>
+    </Switch>
+  );
+};
 
-export default App
+export default App;
