@@ -66,7 +66,7 @@ const SeatSelectionContent = () => {
       `Movie Booked ${bookingData.movie}, seats Booked ${seatsCount} -- ENJOY !!!!!`
     );
   };
-
+  console.log("bookingData", bookingData)
   return (
     <div className="seat-selection-container">
       <div className="column">{renderImage()}</div>

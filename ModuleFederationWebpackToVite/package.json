@@ -1,0 +1,10 @@
+{
+    "name": "mf-webpack-to-vite",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+      "build": "pnpm --parallel --filter \"./**\" build",
+      "serve": "pnpm --parallel --filter \"./**\" dev"
+    }
+  }
+  

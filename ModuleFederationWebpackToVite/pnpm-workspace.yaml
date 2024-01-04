@@ -1,0 +1,7 @@
+packages:
+  - "DetailsPageApp"
+  - "HomePageApp"
+  - "MF_Server"
+  - "MovieApp"
+  - "ReactComponents"
+  - "SeatSelectionApp"

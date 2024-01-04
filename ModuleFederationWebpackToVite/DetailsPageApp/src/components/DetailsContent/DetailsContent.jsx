@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./DetailsContent.scss";
 
 const DetailsContent = (props) => {
@@ -6,23 +6,23 @@ const DetailsContent = (props) => {
   const [date, setDate] = useState("01/02/2022");
   const [time, setTime] = useState("10 Am");
 
-  useEffect(async () => {
-    const resp = await fetch("http://localhost:5555/movies");
-    const data = await resp.json();
-
-    let pathArr = props.location.pathname.split("/");
-    let id = pathArr[pathArr.length - 1];
-
-    const selectedMovie = data.filter((movie) => {
-      return movie.id === parseInt(id);
+  useEffect(() => {
+    fetch("http://localhost:5555/movies").then((resp)=>resp.json()).then((data)=>{
+      let pathArr = props.location.pathname.split("/");
+      let id = pathArr[pathArr.length - 1];
+  
+      const selectedMovie = data.filter((movie) => {
+        return movie.id === parseInt(id);
+      });
+  
+      console.log(selectedMovie);
+  
+      setMovie(selectedMovie[0]);
     });
-
-    console.log(selectedMovie);
-
-    setMovie(selectedMovie[0]);
-  }, []);
+  }, [props.location.pathname]);
 
   const renderImage = () => {
+    if(!movie.imageUrl) return null
     const imgUrl = `http://localhost:5555/images/${movie.imageUrl}`;
     return <img src={imgUrl}></img>;
   };
@@ -33,6 +33,8 @@ const DetailsContent = (props) => {
       date,
       time,
     };
+
+    console.log("booking", booking)
 
     import("movieapp/MovieData").then((module) => {
       const movieData = module.default;
